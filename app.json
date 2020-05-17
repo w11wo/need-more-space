@@ -3,11 +3,11 @@
     "name": "Need More Space",
     "description": "An app about outer space.",
     "version": "1.0.0",
-    "sdkVersion": "27.0.0",
+    "sdkVersion": "34.0.0",
     "slug": "need-more-space",
     "splash": {
       "image": "./assets/splash.png",
-      "backgroundColor": "#000000",
+      "backgroundColor": "#000000"
     },
     "icon": "./assets/icon.png",
     "ios": {
@@ -15,6 +15,10 @@
     },
     "android": {
       "package": "com.w11wo.needmorespace"
-    }
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

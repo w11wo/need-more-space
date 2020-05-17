@@ -1,6 +1,5 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { createStackNavigator, createBottomTabNavigator, SafeAreaView } from 'react-navigation'
+import { createAppContainer, createStackNavigator, createBottomTabNavigator, SafeAreaView } from 'react-navigation'
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 
 import SolarSystemScreen from './screens/solarSystemScreen.js'
@@ -22,7 +21,7 @@ const SolarSystemStack = createStackNavigator({
 })
 
 SolarSystemStack.navigationOptions = {
-  tabBarIcon: ({ focused, tintColor }) => (
+  tabBarIcon: ({ tintColor }) => (
     <Ionicons
       name={"md-globe"}
       size={25}
@@ -40,7 +39,7 @@ const RocketsStack = createStackNavigator({
 })
 
 RocketsStack.navigationOptions = {
-  tabBarIcon: ({ focused, tintColor }) => (
+  tabBarIcon: ({ tintColor }) => (
     <MaterialCommunityIcons
       name={"rocket"}
       size={25}
@@ -61,6 +60,14 @@ const MainTabs = createBottomTabNavigator({
     showLabel: false,
     style: {
       backgroundColor: '#000',
+      shadowRadius: 2,
+      shadowOffset: {
+        width: 0,
+        height: -2,
+      },
+      shadowOpacity: 0.5,
+      shadowColor: '#000',
+      elevation: 4,
     },
   }
 },
@@ -68,10 +75,6 @@ const MainTabs = createBottomTabNavigator({
   initialRouteName: 'Solar',
 })
 
-export default class App extends React.Component {
-  render () {
-    return (
-      <MainTabs />
-    )
-  }
-}
+const App = createAppContainer(SolarSystemStack);
+
+export default App;
